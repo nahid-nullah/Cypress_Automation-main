@@ -8,7 +8,6 @@ import{Settings} from "./../../integration/PageObjects/SettingsPage"
 import{NewPost} from "./../../integration/PageObjects/NewPostPage"
 import{ArticleHome} from "./../../integration/PageObjects/ArticleHomePage"
 import{SignIn} from "./..//..//integration/PageObjects/SignInPage"
-import{User} from "./..//..//integration/PageObjects/UserPage"
 import{Web} from "./..//..//integration/PageObjects/WebPage"
 
 
@@ -25,11 +24,11 @@ describe('take home test', function() {
         //click on username field
         signup.clickonusername();
         //enter user name
-        signup.typeusername("user267");
+        signup.typeusername("user2678");
         //click on email field
         signup.clickonemail();
         //enter email
-        signup.typeemail("email267@gmail.com");
+        signup.typeemail("email2678@gmail.com");
         //click on password field
         signup.clickonpassword();
         //enter password
