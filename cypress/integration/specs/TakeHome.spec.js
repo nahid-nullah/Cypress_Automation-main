@@ -29,11 +29,11 @@ describe('take home test', function() {
         //click on username field
         signup.clickonusername();
         //enter user name
-        signup.typeusername("user2678");
+        signup.typeusername("user8972");
         //click on email field
         signup.clickonemail();
         //enter email
-        signup.typeemail("email2678@gmail.com");
+        signup.typeemail("email8972@gmail.com");
         //click on password field
         signup.clickonpassword();
         //enter password
