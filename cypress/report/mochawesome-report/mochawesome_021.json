@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-06-26T15:03:20.609Z",
+    "end": "2022-06-26T15:03:52.476Z",
+    "duration": 31867,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "c5021922-7a7f-4e3f-a621-56368e0f05bc",
+      "title": "",
+      "fullFile": "cypress/integration/specs/WeightWatchersTest.spec.js",
+      "file": "cypress/integration/specs/WeightWatchersTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "99f223f7-00bd-48af-93ae-c6f87fa68ffb",
+          "title": "Capture operation hours for weight watchers in person visit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to weight watchers and capture in person visit hours",
+              "fullTitle": "Capture operation hours for weight watchers in person visit Navigate to weight watchers and capture in person visit hours",
+              "timedOut": null,
+              "duration": 27469,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.weightwatchers.com');\ncy.xpath('//*[@data-e2e-name=\"find_a workshop\"]').click({\n  force: true\n}); //scroll using x and y\n//cy.scrollTo(x, y)\n//select\n//cy.xpath('xpath syntax').select('user value by text')\n//sleep\n//cy.wait(3000)\n//increase viewport of ui\n//cy.viewport(1080, 720)",
+              "err": {
+                "message": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Cannot set properties of undefined (setting 'status')\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                "estack": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Cannot set properties of undefined (setting 'status')\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n    at i (https://www.weightwatchers.com/us/find-a-workshop/:24:12754)\n    at XMLHttpRequest.<anonymous> (https://www.weightwatchers.com/us/find-a-workshop/:24:13357)\n    at XMLHttpRequest.nrWrapper (https://www.weightwatchers.com/us/find-a-workshop/:24:23886)",
+                "diff": null
+              },
+              "uuid": "229d85e4-198d-45a5-a8c7-d594d7ad0e15",
+              "parentUUID": "99f223f7-00bd-48af-93ae-c6f87fa68ffb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "229d85e4-198d-45a5-a8c7-d594d7ad0e15"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 27469,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

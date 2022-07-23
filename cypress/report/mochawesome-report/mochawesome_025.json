@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-06-26T15:13:00.644Z",
+    "end": "2022-06-26T15:13:00.928Z",
+    "duration": 284,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3415279e-450d-48cf-a918-522d48952581",
+      "title": "",
+      "fullFile": "cypress/integration/specs/WeightWatchersTest.spec.js",
+      "file": "cypress/integration/specs/WeightWatchersTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "a07211c3-b1ad-4975-9b53-50552173e3a7",
+          "title": "Capture operation hours for weight watchers in person visit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to weight watchers and capture in person visit hours",
+              "fullTitle": "Capture operation hours for weight watchers in person visit Navigate to weight watchers and capture in person visit hours",
+              "timedOut": null,
+              "duration": 232,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.weightwatchers.com');\ncy.xpath('//*[@data-e2e-name=\"find_a workshop\"]').click({\n  force: true\n});\ncy.xpath('//*[@placeholder=\"Enter location\"]'), {\n  timeout: 7000\n}.click({\n  force: true\n});\ncy.xpath('//*[@placeholder=\"Enter location\"]').type(19082);\ncy.xpath('//*[@placeholder=\"Enter location\"]').type(\"{enter}\"); //scroll using x and y\n//cy.scrollTo(x, y)\n//select\n//cy.xpath('xpath syntax').select('user value by text')\n//sleep\n//cy.wait(3000)\n//increase viewport of ui\n//cy.viewport(1080, 720)\n//click on specific element by index number\ncy.xpath('').eq(0).click();",
+              "err": {
+                "message": "TypeError: {(intermediate value)}.click is not a function",
+                "estack": "TypeError: {(intermediate value)}.click is not a function\n    at Context.eval (http://localhost:60327/__cypress/tests?p=cypress\\integration\\specs\\WeightWatchersTest.spec.js:110:7)",
+                "diff": null
+              },
+              "uuid": "0c605a85-c547-4e86-b74f-8e01e160e3c6",
+              "parentUUID": "a07211c3-b1ad-4975-9b53-50552173e3a7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "0c605a85-c547-4e86-b74f-8e01e160e3c6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 232,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

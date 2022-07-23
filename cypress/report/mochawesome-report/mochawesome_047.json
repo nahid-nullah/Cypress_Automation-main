@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-07-21T22:22:03.512Z",
+    "end": "2022-07-21T22:22:13.509Z",
+    "duration": 9997,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4465ab5b-502c-40a1-8038-dd5805565644",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "43a0a5e7-c86b-417f-b323-31ec48bd762b",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigates to dev test site",
+              "fullTitle": "take home test Navigates to dev test site",
+              "timedOut": null,
+              "duration": 7878,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.wait(7000);",
+              "err": {},
+              "uuid": "2b4068ed-6ebd-475a-a047-ddf30113091e",
+              "parentUUID": "43a0a5e7-c86b-417f-b323-31ec48bd762b",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "2b4068ed-6ebd-475a-a047-ddf30113091e"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 7878,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

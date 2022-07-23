@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-07-22T22:34:25.545Z",
+    "end": "2022-07-22T22:35:02.647Z",
+    "duration": 37102,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "92d188d4-e1f6-48eb-b633-d4b7038ebd88",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "68be4d73-b133-4928-9cf7-8d18ebbdadb1",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to rx-devtest site",
+              "fullTitle": "take home test Navigate to rx-devtest site",
+              "timedOut": null,
+              "duration": 35272,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//SIGN UP - POSITIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('user1234');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('email1234@yahoo.com');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('P@ssW0rd22'); //cy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //SIGN UP - NEGATIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('123');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('123@');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('123456');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //LOGIN - NEGATIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword12\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000);\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(7000); //LOGIN - POSITIVE TEST\n  cy.visit('https://rx-devtest.com');\n  cy.xpath('//a[@href=\"#/login\"]').click();\n  cy.xpath('//input[@placeholder=\"Email\"]').click();\n  cy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\n  cy.xpath('//input[@placeholder=\"Password\"]').click();\n  cy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword123\");\n  cy.xpath('//button[@type=\"submit\"]').click();\n  cy.wait(3000);\n  cy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n    let textValidation = $Validation.text();\n    cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n    cy.wait(7000);\n    cy.xpath('//a[@href=\"#editor\"').click();\n    cy.xpath('//input[@placeholder=\"Artilce Title\"]').click();\n    cy.xpath('//input[@placeholder=\"Artilce Title\"]').type(\"HELLO RXMG\");\n    cy.xpath('//input[@class=\"form-control\"]').eq(0).click();\n    cy.xpath('//input[@class=\"form-control\"]').eq(0).type(\"TESTING\");\n  });\n});",
+              "err": {
+                "message": "SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a[@href=\"#editor\"' is not a valid XPath expression.",
+                "estack": "SyntaxError: Failed to execute 'evaluate' on 'Document': The string '//a[@href=\"#editor\"' is not a valid XPath expression.\nError: Failed to execute 'evaluate' on 'Document': The string '//a[@href=\"#editor\"' is not a valid XPath expression.",
+                "diff": null
+              },
+              "uuid": "945e6c79-8003-43e5-8c8d-cf8c714e3304",
+              "parentUUID": "68be4d73-b133-4928-9cf7-8d18ebbdadb1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "945e6c79-8003-43e5-8c8d-cf8c714e3304"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 35272,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

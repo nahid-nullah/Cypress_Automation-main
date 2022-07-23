@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-07-22T23:45:42.710Z",
+    "end": "2022-07-22T23:45:55.366Z",
+    "duration": 12656,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "520615cf-1ce8-45b5-b0d8-fc82d00996eb",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2fab591a-bf68-4457-aa2d-c793e3d7861a",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to rx-devtest site",
+              "fullTitle": "take home test Navigate to rx-devtest site",
+              "timedOut": null,
+              "duration": 10841,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//SIGN UP - POSITIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('user1234');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('email1234@yahoo.com');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('P@ssW0rd22');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //SIGN UP - NEGATIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('123');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('123@');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('123456');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //LOGIN - NEGATIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword12\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //capturing and printing incorrect login message to console\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(3000);\n}); //end of then\n//LOGIN - POSITIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword123\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //capturing and printing message from user feed to console to validate login\ncy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n  let textValidation = $Validation.text();\n  cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n  cy.wait(3000);\n}); //end of then\n//CREATING A POST\ncy.xpath('//a[@href=\"#/editor\"]').click();\ncy.xpath('//input[@placeholder=\"Article Title\"]').click();\ncy.xpath('//input[@placeholder=\"Article Title\"]').type(\"HELLO RXMG\");\ncy.xpath('//input[@class=\"form-control\"]').eq(0).click();\ncy.xpath('//input[@class=\"form-control\"]').eq(0).type(\"TESTING\");\ncy.xpath('//textarea[@class=\"form-control\"]').type(\"Hello This is a Test\");\ncy.xpath('//input[@class=\"form-control\"]').eq(1).click();\ncy.xpath('//input[@class=\"form-control\"]').eq(1).type(\"Greeting\");\ncy.wait(3000);\ncy.xpath('//button[@type=\"button\"]').click();\ncy.wait(3000);\ncy.xpath('//textarea[@placeholder=\"Write a comment...\"]').click();\ncy.xpath('//textarea[@placeholder=\"Write a comment...\"]').type(\"Amazing 1st Post!\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.xpath('//a[@href=\"#/\"]').eq(1).click();\ncy.xpath('//a[text()=\"Global Feed\"]').click(); //capturing and printing global feed to console to validate post\ncy.xpath('//a[@class=\"preview-link\"]').eq(0).then($postValidation => {\n  let textPostValidation = $postValidation.text();\n  cy.log(\"My post is displaying \" + textPostValidation);\n  cy.wait(3000);\n}); //end of then\n//capturing and printing user feed to console to validate post\ncy.xpath('//img[@class=\"user-pic\"]').click();\ncy.xpath('//div[@class=\"article-preview\"]').then($postValidationUser => {\n  let textPostValidationUser = $postValidationUser.text();\n  cy.log(\"My post is displaying \" + textPostValidationUser);\n  cy.wait(8000);\n}); //end of then\n//DELETING POST AND VALIDATING POST DELETION \ncy.xpath('//a[@class=\"preview-link\"]').eq(0).click();\ncy.xpath('//button[@class=\"btn btn-outline-danger btn-sm\"]').click();\ncy.xpath('//a[text()=\"Global Feed\"]').click();\ncy.wait(5000);\ncy.xpath('//img[@class=\"user-pic\"]').click();\ncy.wait(5000);",
+              "err": {
+                "message": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<a class=\"nav-link\" href=\"#/register\">Sign up</a>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.xpath()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n\nhttps://on.cypress.io/element-has-detached-from-dom",
+                "estack": "CypressError: Timed out retrying after 4050ms: `cy.click()` failed because this element is detached from the DOM.\n\n`<a class=\"nav-link\" href=\"#/register\">Sign up</a>`\n\nCypress requires elements be attached in the DOM to interact with them.\n\nThe previous command that ran was:\n\n  > `cy.xpath()`\n\nThis DOM element likely became detached somewhere between the previous and current command.\n\nCommon situations why this happens:\n  - Your JS framework re-rendered asynchronously\n  - Your app code reacted to an event firing and removed the element\n\nYou typically need to re-query for the element or add 'guards' which delay Cypress from running new commands.\n\nhttps://on.cypress.io/element-has-detached-from-dom\n    at $Cy.ensureAttached (https://rx-devtest.com/__cypress/runner/cypress_runner.js:163831:76)\n    at runAllChecks (https://rx-devtest.com/__cypress/runner/cypress_runner.js:150589:12)\n    at retryActionability (https://rx-devtest.com/__cypress/runner/cypress_runner.js:150669:16)\n    at tryCatcher (https://rx-devtest.com/__cypress/runner/cypress_runner.js:13196:23)\n    at Promise.attempt.Promise.try (https://rx-devtest.com/__cypress/runner/cypress_runner.js:10470:29)\n    at whenStable (https://rx-devtest.com/__cypress/runner/cypress_runner.js:168695:63)\n    at https://rx-devtest.com/__cypress/runner/cypress_runner.js:168192:14\n    at tryCatcher (https://rx-devtest.com/__cypress/runner/cypress_runner.js:13196:23)\n    at Promise._settlePromiseFromHandler (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11131:31)\n    at Promise._settlePromise (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11188:18)\n    at Promise._settlePromise0 (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11233:10)\n    at Promise._settlePromises (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11313:18)\n    at Promise._fulfill (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11257:18)\n    at https://rx-devtest.com/__cypress/runner/cypress_runner.js:12871:46\nFrom Your Spec Code:\n    at Context.eval (https://rx-devtest.com/__cypress/tests?p=cypress\\integration\\specs\\TakeHome.spec.js:115:41)",
+                "diff": null
+              },
+              "uuid": "582d4a6d-088a-4a34-addc-3753dab637d1",
+              "parentUUID": "2fab591a-bf68-4457-aa2d-c793e3d7861a",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "582d4a6d-088a-4a34-addc-3753dab637d1"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 10841,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

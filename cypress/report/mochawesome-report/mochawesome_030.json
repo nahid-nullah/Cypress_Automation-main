@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-06-26T15:26:57.839Z",
+    "end": "2022-06-26T15:27:06.239Z",
+    "duration": 8400,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "28c1e5cb-288a-4fa6-8c2e-d7901afbef73",
+      "title": "",
+      "fullFile": "cypress/integration/specs/WeightWatchersTest.spec.js",
+      "file": "cypress/integration/specs/WeightWatchersTest.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "ee724b23-2a91-457d-8d35-4626cccc07f1",
+          "title": "Capture operation hours for weight watchers in person visit",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to weight watchers and capture in person visit hours",
+              "fullTitle": "Capture operation hours for weight watchers in person visit Navigate to weight watchers and capture in person visit hours",
+              "timedOut": null,
+              "duration": 6499,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.visit('https://www.weightwatchers.com');\ncy.xpath('//*[@data-e2e-name=\"find_a workshop\"]').click({\n  force: true\n});\ncy.wait(5000);\ncy.xpath('//*[@id=\"location-search\"]').click({\n  force: true\n});\ncy.xpath('//*[@id=\"location-search\"]').type('19082');\ncy.xpath('//*[@id=\"location-search\"]').type(\"{enter}\"); //scroll using x and y\n//cy.scrollTo(x, y)\n//select\n//cy.xpath('xpath syntax').select('user value by text')\n//sleep\n//cy.wait(3000)\n//increase viewport of ui\n//cy.viewport(1080, 720)\n//click on specific element by index number\ncy.xpath('').eq(0).click();",
+              "err": {
+                "message": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Cannot set properties of undefined (setting 'status')\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application",
+                "estack": "TypeError: The following error originated from your application code, not from Cypress.\n\n  > Cannot set properties of undefined (setting 'status')\n\nWhen Cypress detects uncaught errors originating from your application it will automatically fail the current test.\n\nThis behavior is configurable, and you can choose to turn this off by listening to the `uncaught:exception` event.\n\nhttps://on.cypress.io/uncaught-exception-from-application\n    at i (https://www.weightwatchers.com/us/find-a-workshop/:24:12754)\n    at XMLHttpRequest.<anonymous> (https://www.weightwatchers.com/us/find-a-workshop/:24:13357)\n    at XMLHttpRequest.nrWrapper (https://www.weightwatchers.com/us/find-a-workshop/:24:23886)",
+                "diff": null
+              },
+              "uuid": "4c424681-40d1-4710-896e-ae1d67ed2007",
+              "parentUUID": "ee724b23-2a91-457d-8d35-4626cccc07f1",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "4c424681-40d1-4710-896e-ae1d67ed2007"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 6499,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

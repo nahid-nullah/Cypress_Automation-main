@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-07-23T04:58:10.219Z",
+    "end": "2022-07-23T04:59:13.713Z",
+    "duration": 63494,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "3d162a7b-bb11-4027-ab7f-3590a9bf1b61",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c528a855-50fc-4d87-bcf6-866a6b69ac81",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to Sign Up Page & Sign Up as a New User - Positive Test",
+              "fullTitle": "take home test Navigate to Sign Up Page & Sign Up as a New User - Positive Test",
+              "timedOut": null,
+              "duration": 61355,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "const signup = new _SignUpPage.SignUp();\nconst home = new _HomePage.Home();\nconst settings = new _SettingsPage.Settings();\ncy.visit('https://rx-devtest.com'); //click on register\nsignup.clickonregister(); //click on username field\nsignup.clickonusername(); //enter user name\nsignup.typeusername(\"user1122\"); //click on email field\nsignup.clickonemail(); //enter email\nsignup.typeemail(\"email1122@gmail.com\"); //click on password field\nsignup.clickonpassword(); //enter password\nsignup.typepassword(\"P@ssWord22\"); //click on sign up button\nsignup.clickonsignupbutton();\ncy.wait(3000); //click on settings\nhome.clickonsettings();\ncy.wait(3000); //click on logout\nsettings.clickonlogout(); //SIGN UP - NEGATIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('123');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('123@');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('123456');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //LOGIN - NEGATIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword12\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //capturing and printing incorrect login message to console\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(3000);\n}); //end of then\n//LOGIN - POSITIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword123\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //capturing and printing message from user feed to console to validate login\ncy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n  let textValidation = $Validation.text();\n  cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n  cy.wait(3000);\n}); //end of then\n//CREATING A POST\ncy.xpath('//a[@href=\"#/editor\"]').click();\ncy.xpath('//input[@placeholder=\"Article Title\"]').click();\ncy.xpath('//input[@placeholder=\"Article Title\"]').type(\"HELLO RXMG\");\ncy.xpath('//input[@class=\"form-control\"]').eq(0).click();\ncy.xpath('//input[@class=\"form-control\"]').eq(0).type(\"TESTING\");\ncy.xpath('//textarea[@class=\"form-control\"]').type(\"Hello This is a Test\");\ncy.xpath('//input[@class=\"form-control\"]').eq(1).click();\ncy.xpath('//input[@class=\"form-control\"]').eq(1).type(\"Greeting\");\ncy.wait(3000);\ncy.xpath('//button[@type=\"button\"]').click();\ncy.wait(3000);\ncy.xpath('//textarea[@placeholder=\"Write a comment...\"]').click();\ncy.xpath('//textarea[@placeholder=\"Write a comment...\"]').type(\"Amazing 1st Post!\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.xpath('//a[@href=\"#/\"]').eq(1).click();\ncy.xpath('//a[text()=\"Global Feed\"]').click(); //capturing and printing global feed to console to validate post\ncy.xpath('//a[@class=\"preview-link\"]').eq(0).then($postValidation => {\n  let textPostValidation = $postValidation.text();\n  cy.log(\"My post is displaying \" + textPostValidation);\n  cy.wait(3000);\n}); //end of then\n//capturing and printing user feed to console to validate post\ncy.xpath('//img[@class=\"user-pic\"]').click();\ncy.xpath('//div[@class=\"article-preview\"]').then($postValidationUser => {\n  let textPostValidationUser = $postValidationUser.text();\n  cy.log(\"My post is displaying \" + textPostValidationUser);\n  cy.wait(8000);\n}); //end of then\n//DELETING POST AND VALIDATING POST DELETION \ncy.xpath('//a[@class=\"preview-link\"]').eq(0).click();\ncy.xpath('//button[@class=\"btn btn-outline-danger btn-sm\"]').click();\ncy.xpath('//a[text()=\"Global Feed\"]').click();\ncy.wait(5000);\ncy.xpath('//img[@class=\"user-pic\"]').click();\ncy.wait(5000);",
+              "err": {},
+              "uuid": "ed2b9be7-d437-42c7-acb6-51a4bd3b0005",
+              "parentUUID": "c528a855-50fc-4d87-bcf6-866a6b69ac81",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "ed2b9be7-d437-42c7-acb6-51a4bd3b0005"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 61355,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

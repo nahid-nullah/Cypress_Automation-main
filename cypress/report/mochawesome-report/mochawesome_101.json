@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-07-23T07:43:46.370Z",
+    "end": "2022-07-23T07:43:48.526Z",
+    "duration": 2156,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "999a3df6-a87c-453a-9048-4cfa38ea0c27",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "4e89e023-87df-44d3-9058-73151d57fc92",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to Sign Up Page & Sign Up as a New User - Positive Test",
+              "fullTitle": "take home test Navigate to Sign Up Page & Sign Up as a New User - Positive Test",
+              "timedOut": null,
+              "duration": 1907,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "const signup = new _SignUpPage.SignUp();\nconst home = new _HomePage.Home();\nconst settings = new _SettingsPage.Settings();\nconst web = new _WebPage.Web();\nconst newpost = new _NewPostPage.NewPost();\nconst articlehome = new _ArticleHomePage.ArticleHome(); //navigate to page\ncy.visit('https://rx-devtest.com'); //click on register\nweb.clickonregister(); //click on username field\nsignup.clickonusername(); //enter user name\nsignup.typeusername(\"user215\"); //click on email field\nsignup.clickonemail(); //enter email\nsignup.typeemail(\"email215@gmail.com\"); //click on password field\nsignup.clickonpassword(); //enter password\nsignup.typepassword(\"P@ssWord22\"); //click on sign up button\n//signup.clickonsignupbutton();\n//cy.wait(3000);\n//click on settings\n//home.clickonsettings();\n//cy.wait(3000);\n//click on logout\n//settings.clickonlogout();\n//SIGNUP NEGATIVE TEST\n//navigate to page\ncy.visit('https://rx-devtest.com'); //click on register\nweb.clickonregister(); //click on username field\nsignup.clickonusername(); //enter user name\nsignup.typeusername(\"123\"); //click on email field\nsignup.clickonemail(); //enter email\nsignup.typeemail(\"123@\"); //click on password field\nsignup.clickonpassword(); //enter password\nsignup.typepassword(\"123456\"); //click on sign up button\nsignup.clickonsignupbutton();\ncy.wait(3000); //LOGIN - NEGATIVE TEST\nconst signin = new _SignInPage.SignIn(); //navigate to page\ncy.visit('https://rx-devtest.com'); //click on Sign in\nweb.clickonsignin(); //click on email field\nsignin.clickonemail(); //enter email\nsignin.typeemail(\"email123@yahoo.com\"); //click on password field\nsignin.clickonpassword(); //enter password\nsignin.typepassword(\"P@ssword12\"); //click on sign in button\nsignin.clickonsigninbutton();\ncy.wait(3000);\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(8000);\n}); //end of then\n//LOGIN - POSITIVE TEST\n//navigate to page\ncy.visit('https://rx-devtest.com'); //click on Sign in\nweb.clickonsignin(); //click on email field\nsignin.clickonemail(); //enter email\nsignin.typeemail(\"email123@yahoo.com\"); //click on password field\nsignin.clickonpassword(); //enter password\nsignin.typepassword(\"P@ssword123\"); //click on sign in button\nsignin.clickonsigninbutton();\ncy.wait(3000); //capturing and printing message from user feed to console to validate login\ncy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n  let textValidation = $Validation.text();\n  cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n  cy.wait(3000);\n}); //end of then\n//CREATING A POST\n//click on New Post\nhome.clickonnewpost(); //click on Article Title\nnewpost.clickonarticletitle(); //enter Article Title\nnewpost.typearticletitle(\"HELLO RXMG\"); //click on What's this article about\nnewpost.clickonarticleabout().eq(0); //enter What's this article about\nnewpost.typearticleabout(\"TESTING\").eq(0); //click on Write your article\nnewpost.clickonarticlewrite(); //enter and write your article\nnewpost.typearticlewrite(\"Hello This is a Test\"); //click on Enter tags\nnewpost.clickonarticletag.eq(1); //enter tags\nnewpost.typearticletag(\"Greeting\").eq(1);\ncy.wait(3000);\nnewpost.clickonarticlepublish();\ncy.wait(3000); //click on Write a comment field\narticlehome.clickoncommentarticle(); //enter comment in comment field\narticlehome.typecommentarticle(\"Amazing 1st Post!\"); //click on Post Comment\narticlehome.clickonpostcomment(); //click on home button\narticlehome.clickonhome().eq(1); //click on Global Feed\nhome.clickonglobalfeed();\ncy.xpath('//a[@class=\"preview-link\"]').eq(0).then($postValidation => {\n  let textPostValidation = $postValidation.text();\n  cy.log(\"My post is displaying \" + textPostValidation);\n  cy.wait(3000);\n}); //end of then\n//cy.xpath('//a[@href=\"#/editor\"]').click();\n//cy.xpath('//input[@placeholder=\"Article Title\"]').click();\n//cy.xpath('//input[@placeholder=\"Article Title\"]').type(\"HELLO RXMG\");\n//cy.xpath('//input[@class=\"form-control\"]').eq(0).click();\n//cy.xpath('//input[@class=\"form-control\"]').eq(0).type(\"TESTING\")\n//cy.xpath('//textarea[@class=\"form-control\"]').type(\"Hello This is a Test\");\n//cy.xpath('//input[@class=\"form-control\"]').eq(1).click();\n//cy.xpath('//input[@class=\"form-control\"]').eq(1).type(\"Greeting\")\n//cy.wait(3000);\n//cy.xpath('//button[@type=\"button\"]').click();\n//cy.wait(3000);\n//cy.xpath('//textarea[@placeholder=\"Write a comment...\"]').click();\n//cy.xpath('//textarea[@placeholder=\"Write a comment...\"]').type(\"Amazing 1st Post!\");\n//cy.xpath('//button[@type=\"submit\"]').click();\n//cy.xpath('//a[@href=\"#/\"]').eq(1).click();\n//cy.xpath('//a[text()=\"Global Feed\"]').click();\n//capturing and printing global feed to console to validate post\n//cy.xpath('//a[@class=\"preview-link\"]').eq(0).then(($postValidation) =>{\n//let textPostValidation = $postValidation.text();\n//cy.log(\"My post is displaying \" + textPostValidation);\n//cy.wait(3000);\n//})//end of then\n//capturing and printing user feed to console to validate post\ncy.xpath('//img[@class=\"user-pic\"]').click();\ncy.xpath('//div[@class=\"article-preview\"]').then($postValidationUser => {\n  let textPostValidationUser = $postValidationUser.text();\n  cy.log(\"My post is displaying \" + textPostValidationUser);\n  cy.wait(8000);\n}); //end of then\n//DELETING POST AND VALIDATING POST DELETION \ncy.xpath('//a[@class=\"preview-link\"]').eq(0).click();\ncy.xpath('//button[@class=\"btn btn-outline-danger btn-sm\"]').click();\ncy.xpath('//a[text()=\"Global Feed\"]').click();\ncy.wait(5000);\ncy.xpath('//img[@class=\"user-pic\"]').click();\ncy.wait(5000);",
+              "err": {
+                "message": "TypeError: Cannot read properties of undefined (reading 'eq')",
+                "estack": "TypeError: Cannot read properties of undefined (reading 'eq')\n    at Context.eval (http://localhost:52814/__cypress/tests?p=cypress\\integration\\specs\\TakeHome.spec.js:39957:34)",
+                "diff": null
+              },
+              "uuid": "93eec731-b3d8-4f4e-a3f3-9a6d68b1466a",
+              "parentUUID": "4e89e023-87df-44d3-9058-73151d57fc92",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "93eec731-b3d8-4f4e-a3f3-9a6d68b1466a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1907,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

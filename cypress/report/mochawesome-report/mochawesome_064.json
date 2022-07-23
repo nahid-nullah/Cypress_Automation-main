@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-07-22T22:37:18.514Z",
+    "end": "2022-07-22T22:37:57.897Z",
+    "duration": 39383,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "652716f6-4c4a-481d-a771-27e654837e2c",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "1a2d74a6-e42d-471b-8989-f0cd1987197d",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to rx-devtest site",
+              "fullTitle": "take home test Navigate to rx-devtest site",
+              "timedOut": null,
+              "duration": 37722,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//SIGN UP - POSITIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('user1234');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('email1234@yahoo.com');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('P@ssW0rd22'); //cy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //SIGN UP - NEGATIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('123');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('123@');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('123456');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //LOGIN - NEGATIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword12\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000);\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(7000); //LOGIN - POSITIVE TEST\n  cy.visit('https://rx-devtest.com');\n  cy.xpath('//a[@href=\"#/login\"]').click();\n  cy.xpath('//input[@placeholder=\"Email\"]').click();\n  cy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\n  cy.xpath('//input[@placeholder=\"Password\"]').click();\n  cy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword123\");\n  cy.xpath('//button[@type=\"submit\"]').click();\n  cy.wait(3000);\n  cy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n    let textValidation = $Validation.text();\n    cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n    cy.wait(7000);\n    cy.xpath('//a[@href=\"#editor\"]').click();\n    cy.xpath('//input[@placeholder=\"Artilce Title\"]').click();\n    cy.xpath('//input[@placeholder=\"Artilce Title\"]').type(\"HELLO RXMG\");\n    cy.xpath('//input[@class=\"form-control\"]').eq(0).click();\n    cy.xpath('//input[@class=\"form-control\"]').eq(0).type(\"TESTING\");\n  });\n});",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `//a[@href=\"#editor\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `//a[@href=\"#editor\"]`, but never found it.\n    at ensureExistence (https://rx-devtest.com/__cypress/runner/cypress_runner.js:163899:25)\n    at $Cy.ensureElExistence (https://rx-devtest.com/__cypress/runner/cypress_runner.js:163917:12)\n    at ensureExistence (https://rx-devtest.com/__cypress/runner/cypress_runner.js:151078:25)\n    at onFailFn (https://rx-devtest.com/__cypress/runner/cypress_runner.js:151118:11)\n    at tryCatcher (https://rx-devtest.com/__cypress/runner/cypress_runner.js:13196:23)\n    at Promise._settlePromiseFromHandler (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11131:31)\n    at Promise._settlePromise (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11188:18)\n    at Promise._settlePromise0 (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11233:10)\n    at Promise._settlePromises (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11309:18)\n    at _drainQueueStep (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7903:12)\n    at _drainQueue (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7896:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7912:5)\n    at Async.drainQueues (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7782:14)",
+                "diff": null
+              },
+              "uuid": "78174baa-cdef-4f31-9597-7a4b2c202e04",
+              "parentUUID": "1a2d74a6-e42d-471b-8989-f0cd1987197d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "78174baa-cdef-4f31-9597-7a4b2c202e04"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 37722,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

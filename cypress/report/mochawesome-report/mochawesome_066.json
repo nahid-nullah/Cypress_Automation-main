@@ -1,0 +1,111 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-07-22T22:45:15.910Z",
+    "end": "2022-07-22T22:45:48.358Z",
+    "duration": 32448,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "5797daf6-8062-4f5b-898b-e808fa941734",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9faac318-b82f-4673-8ad8-e815dfc115ba",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to rx-devtest site",
+              "fullTitle": "take home test Navigate to rx-devtest site",
+              "timedOut": null,
+              "duration": 30633,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//SIGN UP - POSITIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('user1234');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('email1234@yahoo.com');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('P@ssW0rd22'); //cy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //SIGN UP - NEGATIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('123');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('123@');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('123456');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000); //LOGIN - NEGATIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword12\");\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(3000);\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(3000); //LOGIN - POSITIVE TEST\n  cy.visit('https://rx-devtest.com');\n  cy.xpath('//a[@href=\"#/login\"]').click();\n  cy.xpath('//input[@placeholder=\"Email\"]').click();\n  cy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\n  cy.xpath('//input[@placeholder=\"Password\"]').click();\n  cy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword123\");\n  cy.xpath('//button[@type=\"submit\"]').click();\n  cy.wait(3000);\n  cy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n    let textValidation = $Validation.text();\n    cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n    cy.wait(3000);\n    cy.xpath('//a[@href=\"#/editor\"]').click();\n    cy.xpath('//input[@placeholder=\"Article Title\"]').click();\n    cy.xpath('//input[@placeholder=\"Article Title\"]').type(\"HELLO RXMG\");\n    cy.xpath('//input[@class=\"form-control\"]').eq(0).click();\n    cy.xpath('//input[@class=\"form-control\"]').eq(0).type(\"TESTING\");\n    cy.xpath('//textarea[@class=\"form-control\"]').type(\"Hello This is a Test\");\n    cy.wait(3000);\n  });\n});",
+              "err": {},
+              "uuid": "5e85b765-2fc6-4520-9655-4fb3b31d9dc7",
+              "parentUUID": "9faac318-b82f-4673-8ad8-e815dfc115ba",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "5e85b765-2fc6-4520-9655-4fb3b31d9dc7"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 30633,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}

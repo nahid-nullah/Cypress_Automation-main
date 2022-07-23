@@ -1,0 +1,115 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2022-07-22T21:38:26.315Z",
+    "end": "2022-07-22T21:38:52.966Z",
+    "duration": 26651,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "fe5038e3-02ee-41b5-9019-35b36f0e1fd1",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "307648b9-cfb5-46a9-a9ec-839f55698acd",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to rx-devtest site",
+              "fullTitle": "take home test Navigate to rx-devtest site",
+              "timedOut": null,
+              "duration": 25034,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "//SIGN UP - POSITIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('user1234');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('email1234@yahoo.com');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('P@ssW0rd22'); //cy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(7000); //SIGN UP - NEGATIVE TEST SCENARIO\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/register\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').click();\ncy.xpath('//input[@placeholder=\"Username\"]').type('123');\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type('123@');\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type('123456');\ncy.xpath('//button[@type=\"submit\"]').click();\ncy.wait(7000); //LOGIN - POSITIVE TEST\ncy.visit('https://rx-devtest.com');\ncy.xpath('//a[@href=\"#/login\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').click();\ncy.xpath('//input[@placeholder=\"Email\"]').type(\"email123@yahoo.com\");\ncy.xpath('//input[@placeholder=\"Password\"]').click();\ncy.xpath('//input[@placeholder=\"Password\"]').type(\"P@ssword123\");\ncy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n  let textValidation = $Validation.text();\n  cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n  cy.wait(7000);\n}); //end of then",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `//div[@class=\"article-preview\"]`, but never found it.",
+                "estack": "AssertionError: Timed out retrying after 4000ms: Expected to find element: `//div[@class=\"article-preview\"]`, but never found it.\n    at ensureExistence (https://rx-devtest.com/__cypress/runner/cypress_runner.js:163899:25)\n    at $Cy.ensureElExistence (https://rx-devtest.com/__cypress/runner/cypress_runner.js:163917:12)\n    at ensureExistence (https://rx-devtest.com/__cypress/runner/cypress_runner.js:151078:25)\n    at onFailFn (https://rx-devtest.com/__cypress/runner/cypress_runner.js:151118:11)\n    at tryCatcher (https://rx-devtest.com/__cypress/runner/cypress_runner.js:13196:23)\n    at Promise._settlePromiseFromHandler (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11131:31)\n    at Promise._settlePromise (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11188:18)\n    at Promise._settlePromise0 (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11233:10)\n    at Promise._settlePromises (https://rx-devtest.com/__cypress/runner/cypress_runner.js:11309:18)\n    at _drainQueueStep (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7903:12)\n    at _drainQueue (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7896:9)\n    at ../../node_modules/bluebird/js/release/async.js.Async._drainQueues (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7912:5)\n    at Async.drainQueues (https://rx-devtest.com/__cypress/runner/cypress_runner.js:7782:14)",
+                "diff": null
+              },
+              "uuid": "670e6187-d3f3-4397-81c7-f767a97fccc5",
+              "parentUUID": "307648b9-cfb5-46a9-a9ec-839f55698acd",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "670e6187-d3f3-4397-81c7-f767a97fccc5"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 25034,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}
