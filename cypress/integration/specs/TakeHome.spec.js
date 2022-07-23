@@ -12,11 +12,16 @@ import{Web} from "./..//..//integration/PageObjects/WebPage"
 
 
 describe('take home test', function() {
+    const signup = new SignUp();
+    const home = new Home();
+    const settings = new Settings();
+    const web = new Web();
+    const signin = new SignIn();
+    const newpost = new NewPost();
+    const articlehome = new ArticleHome();
+
     it('Navigate to Sign Up Page & Sign Up as a New User - Positive Test',() =>{
-        const signup = new SignUp();
-        const home = new Home();
-        const settings = new Settings();
-        const web = new Web();
+       
         //navigate to page
         cy.visit('https://rx-devtest.com');
         //click on register
@@ -45,8 +50,6 @@ describe('take home test', function() {
    
         
         it('Navigate to Sign Up Page & Sign Up as a New User - Negative Test',() =>{
-        const signup = new SignUp();
-        const web = new Web();
         //navigate to page
         cy.visit('https://rx-devtest.com');
         //click on register
@@ -70,8 +73,6 @@ describe('take home test', function() {
 
 
         it('Navigate to Login Page & Login - Negative Test',() =>{
-        const web = new Web();
-        const signin = new SignIn();
         //navigate to page
         cy.visit('https://rx-devtest.com');
         //click on Sign in
@@ -96,8 +97,6 @@ describe('take home test', function() {
 
 
     it('Navigate to Login Page & Login - Positive Test',() =>{
-        const web = new Web();
-        const signin = new SignIn();
         //navigate to page
         cy.visit('https://rx-devtest.com');
         //click on Sign in
@@ -123,9 +122,6 @@ describe('take home test', function() {
 
 
     it('Navigate to Web Page and Create a Post',() =>{
-        const home = new Home();
-        const newpost = new NewPost();
-        const articlehome = new ArticleHome();
         //click on New Post
         home.clickonnewpost();
         //click on Article Title
@@ -177,8 +173,6 @@ describe('take home test', function() {
     })//end of it
 
     it('Navigate to Web Page and Delete Created Post',() =>{
-        const articlehome = new ArticleHome();
-        const home = new Home();
         //click on user post
         home.clickonuserpostlink();
         //click on Delete Article
@@ -186,12 +180,18 @@ describe('take home test', function() {
         //click on Global Feed
         home.clickonglobalfeed();
         cy.wait(5000);
+        //click on user image
         home.clickonuserimage();
-        cy.wait(5000);
+        //validate post has been deleted from user feed by printing to console
+        cy.xpath('//div[@class="article-preview"]').then(($postValidationDelete) =>{
+            let textPostValidationDelete = $postValidationDelete.text();
+            cy.log("Is post still displaying? " + textPostValidationDelete);
+            cy.wait(10000);
 
-    })//end of it
+    })//end of then
 
 
+})//end of it
 
 })//end of describe
 

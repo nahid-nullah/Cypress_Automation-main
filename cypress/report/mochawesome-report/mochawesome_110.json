@@ -1,0 +1,206 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 6,
+    "passes": 6,
+    "pending": 0,
+    "failures": 0,
+    "start": "2022-07-23T20:16:38.310Z",
+    "end": "2022-07-23T20:17:56.820Z",
+    "duration": 78510,
+    "testsRegistered": 6,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "90d01478-3f44-46af-bdf2-50b2aecf03b4",
+      "title": "",
+      "fullFile": "cypress/integration/specs/TakeHome.spec.js",
+      "file": "cypress/integration/specs/TakeHome.spec.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "caa30996-b393-4c63-a811-80b901e8556f",
+          "title": "take home test",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Navigate to Sign Up Page & Sign Up as a New User - Positive Test",
+              "fullTitle": "take home test Navigate to Sign Up Page & Sign Up as a New User - Positive Test",
+              "timedOut": null,
+              "duration": 12535,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//navigate to page\ncy.visit('https://rx-devtest.com'); //click on register\nweb.clickonregister(); //click on username field\nsignup.clickonusername(); //enter user name\nsignup.typeusername(\"user2678\"); //click on email field\nsignup.clickonemail(); //enter email\nsignup.typeemail(\"email2678@gmail.com\"); //click on password field\nsignup.clickonpassword(); //enter password\nsignup.typepassword(\"P@ssWord23\"); //click on sign up button\nsignup.clickonsignupbutton();\ncy.wait(3000); //click on settings\nhome.clickonsettings();\ncy.wait(3000); //click on logout\nsettings.clickonlogout();",
+              "err": {},
+              "uuid": "6e640716-9752-4349-af76-01669213d215",
+              "parentUUID": "caa30996-b393-4c63-a811-80b901e8556f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to Sign Up Page & Sign Up as a New User - Negative Test",
+              "fullTitle": "take home test Navigate to Sign Up Page & Sign Up as a New User - Negative Test",
+              "timedOut": null,
+              "duration": 5300,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//navigate to page\ncy.visit('https://rx-devtest.com'); //click on register\nweb.clickonregister(); //click on username field\nsignup.clickonusername(); //enter user name\nsignup.typeusername(\"123\"); //click on email field\nsignup.clickonemail(); //enter email\nsignup.typeemail(\"123@\"); //click on password field\nsignup.clickonpassword(); //enter password\nsignup.typepassword(\"123456\"); //click on sign up button\nsignup.clickonsignupbutton();\ncy.wait(3000);",
+              "err": {},
+              "uuid": "3496252e-e7e2-4584-bcec-fb60066c566f",
+              "parentUUID": "caa30996-b393-4c63-a811-80b901e8556f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to Login Page & Login - Negative Test",
+              "fullTitle": "take home test Navigate to Login Page & Login - Negative Test",
+              "timedOut": null,
+              "duration": 8340,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//navigate to page\ncy.visit('https://rx-devtest.com'); //click on Sign in\nweb.clickonsignin(); //click on email field\nsignin.clickonemail(); //enter email\nsignin.typeemail(\"email123@yahoo.com\"); //click on password field\nsignin.clickonpassword(); //enter password\nsignin.typepassword(\"P@ssword12\"); //click on sign in button\nsignin.clickonsigninbutton();\ncy.wait(3000);\ncy.xpath('//ul[@class=\"error-messages\"]').then($incorrectLogin => {\n  let textincorrectLogin = $incorrectLogin.text();\n  cy.log(\"Incorrect Login Message is \" + textincorrectLogin);\n  cy.wait(3000);\n}); //end of then",
+              "err": {},
+              "uuid": "efdb017f-f8ea-44f2-b8b9-4238c6cccc56",
+              "parentUUID": "caa30996-b393-4c63-a811-80b901e8556f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to Login Page & Login - Positive Test",
+              "fullTitle": "take home test Navigate to Login Page & Login - Positive Test",
+              "timedOut": null,
+              "duration": 8339,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//navigate to page\ncy.visit('https://rx-devtest.com'); //click on Sign in\nweb.clickonsignin(); //click on email field\nsignin.clickonemail(); //enter email\nsignin.typeemail(\"email123@yahoo.com\"); //click on password field\nsignin.clickonpassword(); //enter password\nsignin.typepassword(\"P@ssword123\"); //click on sign in button\nsignin.clickonsigninbutton();\ncy.wait(3000); //capturing and printing message from user feed to console to validate login\ncy.xpath('//div[@class=\"article-preview\"]').then($Validation => {\n  let textValidation = $Validation.text();\n  cy.log(\"Successful Login Redirect Page Message is \" + textValidation);\n  cy.wait(3000);\n}); //end of then",
+              "err": {},
+              "uuid": "93a2aca3-c120-45bd-bfb0-2014bdbc67c5",
+              "parentUUID": "caa30996-b393-4c63-a811-80b901e8556f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to Web Page and Create a Post",
+              "fullTitle": "take home test Navigate to Web Page and Create a Post",
+              "timedOut": null,
+              "duration": 23984,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//click on New Post\nhome.clickonnewpost(); //click on Article Title\nnewpost.clickonarticletitle(); //enter Article Title\nnewpost.typearticletitle(\"HELLO RXMG\"); //click on What's this article about\nnewpost.clickonarticleabout(); //enter What's this article about\nnewpost.typearticleabout(\"TESTING\"); //click on Write your article\nnewpost.clickonarticlewrite(); //enter and write your article\nnewpost.typearticlewrite(\"Hello This is a Test\"); //click on Enter tags\nnewpost.clickonarticletag(); //enter tags\nnewpost.typearticletag(\"Greeting\");\ncy.wait(3000);\nnewpost.clickonarticlepublish();\ncy.wait(3000); //click on Write a comment field\narticlehome.clickoncommentarticle(); //enter comment in comment field\narticlehome.typecommentarticle(\"Amazing 1st Post!\"); //click on Post Comment\narticlehome.clickonpostcomment(); //click on home button\narticlehome.clickonhome(); //click on Global Feed\nhome.clickonglobalfeed(); //capture post from Global Feed and print to console\ncy.xpath('//a[@class=\"preview-link\"]').eq(0).then($postValidation => {\n  let textPostValidation = $postValidation.text();\n  cy.log(\"My post is displaying \" + textPostValidation);\n  cy.wait(3000);\n}); //end of then\n//click on user icon\nhome.clickonuserimage(); //capturr and print post from user feed to console to validate post\ncy.xpath('//div[@class=\"article-preview\"]').then($postValidationUser => {\n  let textPostValidationUser = $postValidationUser.text();\n  cy.log(\"My post is displaying \" + textPostValidationUser);\n  cy.wait(10000);\n}); //end of then",
+              "err": {},
+              "uuid": "c5116309-bb18-4027-9945-0acb32a69290",
+              "parentUUID": "caa30996-b393-4c63-a811-80b901e8556f",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Navigate to Web Page and Delete Created Post",
+              "fullTitle": "take home test Navigate to Web Page and Delete Created Post",
+              "timedOut": null,
+              "duration": 16710,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//click on user post\nhome.clickonuserpostlink(); //click on Delete Article\narticlehome.clickondeletearticle(); //click on Global Feed\nhome.clickonglobalfeed();\ncy.wait(5000); //click on user image\nhome.clickonuserimage(); //validate post has been deleted from user feed by printing to console\ncy.xpath('//div[@class=\"article-preview\"]').then($postValidationDelete => {\n  let textPostValidationDelete = $postValidationDelete.text();\n  cy.log(\"Is post still displaying? \" + textPostValidationDelete);\n  cy.wait(10000);\n}); //end of then",
+              "err": {},
+              "uuid": "17d54e5b-ab1c-4596-bb6c-d6c36af6eb1d",
+              "parentUUID": "caa30996-b393-4c63-a811-80b901e8556f",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "6e640716-9752-4349-af76-01669213d215",
+            "3496252e-e7e2-4584-bcec-fb60066c566f",
+            "efdb017f-f8ea-44f2-b8b9-4238c6cccc56",
+            "93a2aca3-c120-45bd-bfb0-2014bdbc67c5",
+            "c5116309-bb18-4027-9945-0acb32a69290",
+            "17d54e5b-ab1c-4596-bb6c-d6c36af6eb1d"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 75208,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.0.1"
+    },
+    "marge": {
+      "options": {
+        "charts": true,
+        "overwrite": false,
+        "html": true,
+        "json": true,
+        "reportDir": "cypress/report/mochawesome-report",
+        "embeddedScreenshots": true,
+        "inlineAssets": true,
+        "pageLoadTimeout": 12000,
+        "trashAssetsBeforeRuns": true,
+        "defaultCommandTimeout": 20000
+      },
+      "version": "6.0.1"
+    }
+  }
+}
